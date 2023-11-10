@@ -1,1 +1,2 @@
-# MiniprojektDesign
+# Miniprojekt Design
+Skoleprojekt
