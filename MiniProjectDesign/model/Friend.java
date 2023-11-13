@@ -54,7 +54,6 @@ public class Friend
         
         result.add(name);
         result.add(address);
-        result.add(address);
         result.add(phone);
         result.add(city);
         result.add(postalCode);
@@ -78,6 +77,12 @@ public class Friend
     public void createLoan(ArrayList<Copy> copies) {
         Loan loan = new Loan(copies);
         loans.add(loan);
+    }
+    
+    public String infoString() {
+        return "ID: " + id + ": This friend is " + name 
+            + ", their address is " + address + ", " + city + ", " + postalCode
+            + ", phone number " + phone;
     }
     
 
