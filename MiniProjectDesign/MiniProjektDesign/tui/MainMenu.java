@@ -1,6 +1,6 @@
 package tui;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 
 /**
  * Write a description of class MainMenu here.
@@ -10,48 +10,49 @@ import java.util.Scanner;
  */
 public class MainMenu {
     // instance variables 
-    private LoanMenu loanMenu;
-    
-
+    private LoanUI loanUI;
+    private FriendUI friendUI;
     /**
      * Constructor for objects of class MainMenu
      */
     public MainMenu() {
         // initialise instance variables
-        loanMenu = new LoanLPMenu();
-        
-       
+        loanUI = LoanUI.getInstance();
+        friendUI = FriendUI.getInstance();
     }
-    
+
     public void start() {
         mainMenu();
     }
-    
+
     private void mainMenu() {
         boolean running = true;
         while (running) {
             int choice = writeMainMenu();
             switch (choice) {
                 case 1:
-                  System.out.println("Denne er ikke implementeret endnu");
-                  break;
+                    System.out.println("Denne er ikke implementeret endnu");
+                    break;
                 case 2:
-                  System.out.println("Denne er ikke implementeret endnu");
-                  break;
+                    System.out.println("Denne er ikke implementeret endnu");
+                    break;
                 case 3:
-                  loanMenu.start();
-                  break;
+                    int friendID = friendUI.findFriendID();
+                    if(friendID != -1) {
+                        loanUI.createLoan(friendID);
+                    }
+                    break;
                 case 9:
-                  System.out.println("Denne er ikke implementeret endnu");
-                  //createTestData();
-                  break;
+                    System.out.println("Denne er ikke implementeret endnu");
+                    //createTestData();
+                    break;
                 case 0:
-                  System.out.println("Tak for denne gang.");
-                  running = false;
-                  break;
+                    System.out.println("Tak for denne gang.");
+                    running = false;
+                    break;
                 default:
-                  System.out.println("Der er sket en uforklarlig fejl, choice = "+choice);
-                  break;
+                    System.out.println("Der er sket en uforklarlig fejl, choice = "+choice);
+                    break;
             }
         }
     }
@@ -65,7 +66,7 @@ public class MainMenu {
         System.out.println(" (9) Generer testdata");// will generate testdata, delete in final version
         System.out.println(" (0) Afslut programmet");
         System.out.print("\n Vælg:");
-        
+
         while (!keyboard.hasNextInt()) {
             System.out.println("Input skal være et tal - prøv igen");
             keyboard.nextLine();
@@ -73,10 +74,11 @@ public class MainMenu {
         int choice = keyboard.nextInt();
         return choice;
     }
-   
+
     private void createTestData(){
         //getInstance
         //create some Friends and LPs
-        
+
     }
+
 }

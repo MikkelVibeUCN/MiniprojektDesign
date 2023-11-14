@@ -29,8 +29,6 @@ public class FriendContainer
         return resultList;
     }
     
-
-    
     public Friend getFriend(int id) {
         Friend friend = null;
         boolean found = false;

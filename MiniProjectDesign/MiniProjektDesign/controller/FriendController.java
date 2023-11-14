@@ -29,4 +29,11 @@ public class FriendController
         return resultingList;
     }
     
+    public boolean friendWithIdExists(int id) {
+        boolean success = false;
+        if(friendContainer.getFriend(id) != null) {
+            success = true;
+        }
+        return success;
+    }
 }

@@ -15,7 +15,7 @@ public class LoanLPController
         lpController = LPController.getInstance();
     }
 
-    public LoanLPController getInstance() {
+    public static LoanLPController getInstance() {
         if(instance == null) {
             instance = new LoanLPController();
         }
@@ -28,5 +28,13 @@ public class LoanLPController
 
     public ArrayList<Copy> getCopiesFromIdentifier(String identifier) {
         return lpController.getCopiesFromIdentifier(identifier);
+    }
+
+    public ArrayList<String> friendOptionsFromIdentifier(String identifier) {
+        return friendController.friendMatches(identifier);
+    }
+
+    public boolean friendWithIdExists(int id) {
+        return friendController.friendWithIdExists(id);
     }
 }
