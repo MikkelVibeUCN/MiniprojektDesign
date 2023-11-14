@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 
 /**
  * @author Mikkel
@@ -14,5 +15,12 @@ public class Copy
         this.serialNumber = serialNumber;
         this.purchasePrice = purchasePrice;
     }
-
+    
+    public boolean isAvailableForLoan() {
+        boolean result = false;
+        if(loanEndDate.equals("")) {
+            result = true;
+        }
+        return result;
+    }
 }

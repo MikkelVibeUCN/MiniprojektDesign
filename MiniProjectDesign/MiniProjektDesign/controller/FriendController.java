@@ -10,11 +10,11 @@ public class FriendController
 {
     private FriendContainer friendContainer;
     private static FriendController instance;
-    public FriendController() {
+    private FriendController() {
         friendContainer = FriendContainer.getInstance();
     }
     
-    public FriendController getInstance() {
+    public static FriendController getInstance() {
         if(instance == null) {
             instance = new FriendController();
         }

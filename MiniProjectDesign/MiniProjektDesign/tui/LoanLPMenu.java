@@ -1,6 +1,6 @@
 package tui;
 import java.util.Scanner;
-
+import controller.LoanLPController;
 
 
 /**
@@ -9,14 +9,14 @@ import java.util.Scanner;
  * @author Mogens Holm Iversen
  * @version 0.1.0 Initial draft version 
  */
-public class LoanMenu {
+public class LoanLPMenu {
     // instance variables
     
 
     /**
      * Constructor for objects of class LoanMenu
      */
-    public LoanMenu() {
+    public LoanLPMenu() {
         // initialise instance variables
         
        
@@ -32,7 +32,7 @@ public class LoanMenu {
             int choice = writeLoanMenu();
             switch (choice) {
                 case 1:
-                  System.out.println(" Denne er ikke implementeret endnu!");
+                  createLoan();
                   break;
                 case 0:
                   running = false;
@@ -60,6 +60,13 @@ public class LoanMenu {
             keyboard.nextLine();
         }
         return keyboard.nextInt();
+    }
+    
+    public void createLoan() {
+        boolean isCompleted = false;
+        while(!isCompleted) {
+            
+        }
     }
 }
 
