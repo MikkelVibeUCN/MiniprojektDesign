@@ -23,4 +23,8 @@ public class Copy
         }
         return result;
     }
+    
+    public int getSerialNumber() {
+        return serialNumber;
+    }
 }

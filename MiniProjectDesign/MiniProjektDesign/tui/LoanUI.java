@@ -37,7 +37,17 @@ public class LoanUI{
 
         }
     }
-
+    private String getBarCode() {
+        String barcode = null;
+        
+        boolean success = false;
+        while(!success) {
+            
+        }
+        return barcode;
+    }
+    
+    
     private String getCopyInformationFromIdentifier(String identifier) {
         return null;
 

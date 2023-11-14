@@ -20,10 +20,10 @@ public class LPContainer
         return instance;
     }
 
-    public ArrayList<Copy> findCopiesFromIdentifier(String identifier) {
+    public ArrayList<Copy> findAvailableCopiesFromIdentifier(String identifier) {
         ArrayList<Copy> possibleCopies = new ArrayList<>();
         for(LP lp : lps) {
-            if(lp.hasAvailableCopies()) {
+            if(lp.hasAvailableCopy()) {
                 for(Copy copy : lp.getCopies()) {
                     if(copy.isAvailableForLoan()) {
                         possibleCopies.add(copy);
@@ -32,5 +32,33 @@ public class LPContainer
             }
         }
         return possibleCopies;
+    }
+
+    public ArrayList<LP> availableLPs() {
+        ArrayList<LP> result = new ArrayList<>();
+        for(LP lp : lps) {
+            if(lp.hasAvailableCopy()) {
+                result.add(lp);
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<String> availableLPInfoFromIdentifier(String identifier) {
+        ArrayList<String> lpInfoMatchingIdentifier = new ArrayList<>();
+        for(LP lp : availableLPs()) {
+            if(lp.identifierMatchesLP(identifier)) {
+                lpInfoMatchingIdentifier.add(lp.lpInfo());
+            }
+        }
+        return lpInfoMatchingIdentifier;
+    }
+    
+    public boolean availableLPWithBarcodeExists(String barcode) {
+        boolean found = false;
+        int i = -1;
+        
+        //create loop here
+        return found;
     }
 }

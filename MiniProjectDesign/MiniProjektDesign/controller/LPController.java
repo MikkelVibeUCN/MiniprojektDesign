@@ -1,6 +1,7 @@
 package controller;
 import model.LPContainer;
 import model.Copy;
+import model.LP;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +23,10 @@ public class LPController
     }
 
     public ArrayList<Copy> getCopiesFromIdentifier(String identifier) {
-        return lpContainer.findCopiesFromIdentifier(identifier);
+        return lpContainer.findAvailableCopiesFromIdentifier(identifier);
     }
 
+    public ArrayList<String> availableLPsInfoFromIdentifier(String identifier) {
+        return lpContainer.availableLPInfoFromIdentifier(identifier);
+    }
 }

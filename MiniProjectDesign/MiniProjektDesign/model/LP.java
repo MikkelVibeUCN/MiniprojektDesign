@@ -26,7 +26,7 @@ public class LP
 
     public ArrayList<String> getParameters() {
         ArrayList<String> result = new ArrayList<>();
-        
+
         result.add(barcode);
         result.add(title);
         result.add(artist);
@@ -34,9 +34,21 @@ public class LP
 
         return result;
     }
-    
-    
-    public boolean hasAvailableCopies() {
+
+    public boolean identifierMatchesLP(String identifier) {
+        boolean result = false;
+        int i = -1;
+        ArrayList<String> parameters = getParameters();
+        while(!result && ++i < parameters.size()) {
+            String currentIdentifier = parameters.get(i);
+            if(currentIdentifier.toLowerCase().contains(identifier.toLowerCase())) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
+    public boolean hasAvailableCopy() {
         boolean result = false;
         int i = -1;
         while(!result && ++i < copies.size()) {
@@ -47,8 +59,31 @@ public class LP
         }
         return result;
     }
-    
+
+    public String getBarcode() {
+        return barcode;
+    }
+
     public ArrayList<Copy> getCopies() {
         return copies;
+    }
+
+    public String lpInfo() {
+        return "Barcode: " + barcode + ", title of LP: " + title 
+        + ", by " + artist + ", on " + publicationDate;
+    }
+
+    public Copy getAvailableCopy() {
+        Copy result = null;
+        int i = -1;
+        boolean found = false;
+        while(!found && ++i < copies.size()) {
+            Copy currentCopy = copies.get(i);
+            if(currentCopy.isAvailableForLoan()) {
+                result = currentCopy;
+                found = true;
+            }
+        }
+        return result;
     }
 }

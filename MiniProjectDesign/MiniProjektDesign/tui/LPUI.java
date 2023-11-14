@@ -1,63 +1,55 @@
 package tui;
-import controller.FriendController;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
  * @author Mikkel
  */
-public class FriendUI
+public class LPUI
 {
-    private static FriendUI instance;
-    private FriendController friendController;
-    private FriendUI() {
-        friendController = FriendController.getInstance();
+    private LPController lpController;
+
+    public LPUI() {
+        lpController = LPController.getInstance();
     }
 
-    public static FriendUI getInstance() {
-        if(instance == null) {
-            instance = new FriendUI();
-        }
-        return instance;
-    }
-
-    public int findFriendID() {
-        int friendID = -1;
+    public String findLPBarcode() {
+        String barcode = null;
         Scanner keyboard = new Scanner(System.in);
 
         boolean isCompleted = false;
         while(!isCompleted) {
-            System.out.println("Type an identifier of the friend or type \"quit\" to quit ");
-            String friendIdentifier = keyboard.nextLine();
-            
-            if(friendIdentifier.equals("quit")) {
+            System.out.println("Type an identifier of the LP or type \"quit\" to quit ");
+            String lpIdentifier = keyboard.nextLine();
+
+            if(lpIdentifier.equals("quit")) {
                 isCompleted = true;
             }
             else {
-                ArrayList<String> friendOptions = friendController.friendMatches(friendIdentifier);
-                if(friendOptions.size() > 0) {
-                    System.out.println("Friend(s) matching your search: ");
-                    for(String friendOption : friendOptions) {
+                ArrayList<String> lpOptions = lpController.availableLPsInfoFromIdentifier(lpIdentifier);
+                if(lpOptions.size() > 0) {
+                    System.out.println("LP's matching your search: ");
+                    for(String friendOption : lpOptions) {
                         System.out.println(friendOption);
                     }
-                    friendID = getFriendID();
-                    if(friendID == -1) {
+                    //barcode = getFriendID();
+                    if(barcode == null) {
                         System.out.println("Quitting...");
                     }
                     else {
-                        System.out.println("ID selected.");
+                        System.out.println("LP selected.");
                     }
                     isCompleted = true;
                 }
                 else {
-                    System.out.println("No friends with the identifier: " + friendIdentifier + " was found.");
+                    System.out.println("No available LPs with the identifier: " + lpIdentifier + ".");
                 }
             }
         }
-        return friendID;
+        return barcode;
     }
 
-    private int getFriendID() {
+    private int getLPBarcode() {
         int id = -1;
         Scanner keyboard = new Scanner(System.in);
 
@@ -77,11 +69,7 @@ public class FriendUI
             else if(keyboard.nextLine().equals("quit")) {
                 success = true;
             }
-            else {
-                System.out.println("Not a valid number.");
-            }
         }
         return id;
     }
-
 }
