@@ -33,7 +33,7 @@ public class LPUI
             if(lpIdentifier.toLowerCase().equals("quit")) {
                 isCompleted = true;
             }
-            else if(lpIdentifier.toLowerCase().equals("complete")) {
+            else if(lpIdentifier.toLowerCase().equals("confirm")) {
                 isCompleted = true;
             }
             else {
@@ -46,7 +46,6 @@ public class LPUI
                     String barcode = getLPBarcode();
                     if(barcode == null) {
                         System.out.println("Quitting...");
-                        isCompleted = true;
                     }
                     else {
                         result.add(barcode);
@@ -67,13 +66,14 @@ public class LPUI
         boolean success = false;
         while(!success) {
             System.out.println("Select one of the LPs(s) by typing their barcode or quit by typing \"quit\".");
-            if(keyboard.nextLine().equals("quit")) {
+            String input = keyboard.nextLine();
+            if(input.toLowerCase().equals("quit")) {
                 success = true;
             }
             else {
-                String input = keyboard.nextLine();
                 if(lpController.lpWithBarcodeExistsAndIsAvailable(input)) {
                     System.out.println("LP with barcode: " + input + " was selected");
+                    barcode = input;
                     success = true;
                 }
                 else {

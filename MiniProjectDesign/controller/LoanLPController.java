@@ -35,7 +35,7 @@ public class LoanLPController
     public boolean friendWithIdExists(int id) {
         return friendController.friendWithIdExists(id);
     }
-
+    
     public boolean createLoanAndAddToFriend(int friendID, ArrayList<String> barcodes) {
         boolean success = false;
         ArrayList<Copy> copies = new ArrayList<>();

@@ -79,10 +79,10 @@ public class MainMenu {
             ArrayList<String> barcodes = lpUI.findLPBarcodes();
             if(friendID != -1 && barcodes.size() != 0) {
                 if(loanUI.createLoan(friendID, barcodes)) {
-                    System.out.println("An error has accoured please try again.");
+                    System.out.println("Loan created");
                 }
                 else {
-                    System.out.println("Loan created");
+                    System.out.println("An error has accoured please try again.");
                 }
             }
         }

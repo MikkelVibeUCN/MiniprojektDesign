@@ -44,9 +44,6 @@ public class FriendUI
                     if(friendID == -1) {
                         System.out.println("Quitting...");
                     }
-                    else {
-                        System.out.println("ID selected.");
-                    }
                     isCompleted = true;
                 }
                 else {
