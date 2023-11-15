@@ -30,7 +30,7 @@ public class FriendUI
             System.out.println("Type an identifier of the friend or type \"quit\" to quit ");
             String friendIdentifier = keyboard.nextLine();
             
-            if(friendIdentifier.equals("quit")) {
+            if(friendIdentifier.toLowerCase().equals("quit")) {
                 isCompleted = true;
             }
             else {
@@ -83,5 +83,4 @@ public class FriendUI
         }
         return id;
     }
-
 }

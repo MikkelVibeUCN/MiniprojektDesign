@@ -1,6 +1,8 @@
 package controller;
 import java.util.ArrayList;
 import model.Copy;
+import model.Friend;
+import model.Loan;
 
 /**
  * @author Mikkel
@@ -22,10 +24,6 @@ public class LoanLPController
         return instance;
     }
 
-    public void createLoan() {
-
-    }
-
     public ArrayList<Copy> getCopiesFromIdentifier(String identifier) {
         return lpController.getCopiesFromIdentifier(identifier);
     }
@@ -36,5 +34,27 @@ public class LoanLPController
 
     public boolean friendWithIdExists(int id) {
         return friendController.friendWithIdExists(id);
+    }
+
+    public boolean createLoanAndAddToFriend(int friendID, ArrayList<String> barcodes) {
+        boolean success = false;
+        ArrayList<Copy> copies = new ArrayList<>();
+        
+        Friend friend = friendController.getFriendFromId(friendID);
+        if(friend != null) {
+            for(String barcode : barcodes) {
+                Copy currentCopy = lpController.getCopyFromBarcode(barcode);
+                if(currentCopy != null) {
+                    copies.add(currentCopy);
+                }
+            }
+            
+            if(copies.size() > 0) {
+                Loan newLoan = new Loan(copies);
+                friend.addLoan(newLoan);
+                success = true;
+            }
+        }
+        return success;
     }
 }

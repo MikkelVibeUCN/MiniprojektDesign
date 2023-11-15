@@ -57,8 +57,27 @@ public class LPContainer
     public boolean availableLPWithBarcodeExists(String barcode) {
         boolean found = false;
         int i = -1;
-        
-        //create loop here
+        while(!found && ++i < lps.size()) {
+            LP currentLP = lps.get(i);
+            if(currentLP.getBarcode().toLowerCase().equals(barcode.toLowerCase()) && currentLP.hasAvailableCopy()) {
+                found = true;
+            }
+        }
         return found;
+    }
+    
+    public Copy getCopyFromBarcode(String barcode) {
+        Copy result = null;
+        boolean found = false;
+        int i = -1;
+        
+        while(!found && ++i < lps.size()) {
+            LP currentLP = lps.get(i);
+            if(currentLP.hasAvailableCopy()) {
+                result = currentLP.getAvailableCopy();
+                found = true;
+            }
+        }
+        return result;
     }
 }

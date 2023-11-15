@@ -12,6 +12,7 @@ public class MainMenu {
     // instance variables 
     private LoanUI loanUI;
     private FriendUI friendUI;
+    private LPUI lpUI;
     /**
      * Constructor for objects of class MainMenu
      */
@@ -19,6 +20,7 @@ public class MainMenu {
         // initialise instance variables
         loanUI = LoanUI.getInstance();
         friendUI = FriendUI.getInstance();
+        lpUI = LPUI.getInstance();
     }
 
     public void start() {
@@ -37,10 +39,7 @@ public class MainMenu {
                     System.out.println("Denne er ikke implementeret endnu");
                     break;
                 case 3:
-                    int friendID = friendUI.findFriendID();
-                    if(friendID != -1) {
-                        loanUI.createLoan(friendID);
-                    }
+                    createLoan();
                     break;
                 case 9:
                     System.out.println("Denne er ikke implementeret endnu");
@@ -62,22 +61,36 @@ public class MainMenu {
         System.out.println("****** Hovedmenu ******");
         System.out.println(" (1) LÃ¥nermenu");
         System.out.println(" (2) LP menu");
-        System.out.println(" (3) UdlÃ¥nsmenu");
-        System.out.println(" (9) Generer testdata");// will generate testdata, delete in final version
+        System.out.println(" (3) Udlånsmenu");
+        System.out.println(" (9) Generer testdata");
         System.out.println(" (0) Afslut programmet");
-        System.out.print("\n VÃ¦lg:");
+        System.out.print("\n Vælg:");
 
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal vÃ¦re et tal - prÃ¸v igen");
+            System.out.println("Input skal være et tal - prøv igen");
             keyboard.nextLine();
         }
         int choice = keyboard.nextInt();
         return choice;
     }
 
+    private void createLoan() {
+        int friendID = friendUI.findFriendID();
+        if(friendID != -1) {
+            ArrayList<String> barcodes = lpUI.findLPBarcodes();
+            if(friendID != -1 && barcodes.size() != 0) {
+                if(loanUI.createLoan(friendID, barcodes)) {
+                    System.out.println("An error has accoured please try again.");
+                }
+                else {
+                    System.out.println("Loan created");
+                }
+            }
+        }
+    }
+
     private void createTestData(){
-        //getInstance
-        //create some Friends and LPs
+        
 
     }
 

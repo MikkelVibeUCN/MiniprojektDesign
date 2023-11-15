@@ -74,8 +74,7 @@ public class Friend
         return result;
     }
     
-    public void createLoan(ArrayList<Copy> copies) {
-        Loan loan = new Loan(copies);
+    public void addLoan(Loan loan) {
         loans.add(loan);
     }
     

@@ -36,4 +36,8 @@ public class FriendController
         }
         return success;
     }
+    
+    public Friend getFriendFromId(int id) {
+        return friendContainer.getFriend(id);
+    }
 }

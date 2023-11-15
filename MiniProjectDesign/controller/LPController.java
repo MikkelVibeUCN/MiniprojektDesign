@@ -29,4 +29,12 @@ public class LPController
     public ArrayList<String> availableLPsInfoFromIdentifier(String identifier) {
         return lpContainer.availableLPInfoFromIdentifier(identifier);
     }
+    
+    public boolean lpWithBarcodeExistsAndIsAvailable(String barcode) {
+        return lpContainer.availableLPWithBarcodeExists(barcode);
+    }
+    
+    public Copy getCopyFromBarcode(String barcode) {
+        return lpContainer.getCopyFromBarcode(barcode);
+    }
 }
