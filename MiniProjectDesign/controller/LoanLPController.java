@@ -26,10 +26,6 @@ public class LoanLPController
         return instance;
     }
 
-    public ArrayList<Copy> getCopiesFromIdentifier(String identifier) {
-        return lpController.getCopiesFromIdentifier(identifier);
-    }
-
     public ArrayList<String> friendOptionsFromIdentifier(String identifier) {
         return friendController.friendMatches(identifier);
     }
@@ -38,6 +34,11 @@ public class LoanLPController
         return friendController.friendWithIdExists(id);
     }
     
+    /**
+     * 
+     * @param
+     * @return 
+     */
     public boolean createLoanAndAddToFriend(int friendID, ArrayList<String> barcodes) {
         boolean success = false;
         ArrayList<Copy> copies = new ArrayList<>();

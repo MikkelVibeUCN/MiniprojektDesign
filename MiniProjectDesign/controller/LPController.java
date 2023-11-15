@@ -22,10 +22,6 @@ public class LPController
         return instance;
     }
 
-    public ArrayList<Copy> getCopiesFromIdentifier(String identifier) {
-        return lpContainer.findAvailableCopiesFromIdentifier(identifier);
-    }
-
     public ArrayList<String> availableLPsInfoFromIdentifier(String identifier) {
         return lpContainer.availableLPInfoFromIdentifier(identifier);
     }
