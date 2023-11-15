@@ -83,4 +83,8 @@ public class LPUI
         }
         return barcode;
     }
+    
+    public void createTestLPs(String barcode, String title, String artist, String publicationDate, int copyAmount) {
+        lpController.createLP(barcode, title, artist, publicationDate, copyAmount);
+    }
 }

@@ -41,4 +41,8 @@ public class FriendContainer
         }
         return friend;
     }
+    
+    public void addFriend(Friend friend) {
+        friends.add(friend);
+    }
 }

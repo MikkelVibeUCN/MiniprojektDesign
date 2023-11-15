@@ -80,4 +80,9 @@ public class LPContainer
         }
         return result;
     }
+    
+    public void addLP(LP lp) {
+        lps.add(lp);
+    }
+    
 }

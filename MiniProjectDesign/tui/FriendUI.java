@@ -83,4 +83,8 @@ public class FriendUI
         }
         return id;
     }
+    
+    public void createFriend(String name, String address, String phone, String city, String postalCode) {
+        friendController.createFriend(name, address, phone, city, postalCode);
+    }
 }

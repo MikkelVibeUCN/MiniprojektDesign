@@ -7,13 +7,16 @@ import java.util.ArrayList;
 public class Copy
 {
     private int serialNumber;
+    private static int count;
     private String loanStartDate;
     private String loanEndDate;
     private double purchasePrice;
     
-    public Copy(int serialNumber, double purchasePrice) {
-        this.serialNumber = serialNumber;
+    public Copy(double purchasePrice) {
+        serialNumber = count++;
         this.purchasePrice = purchasePrice;
+        loanStartDate = "";
+        loanEndDate = "";
     }
     
     public boolean isAvailableForLoan() {

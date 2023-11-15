@@ -42,8 +42,7 @@ public class MainMenu {
                     createLoan();
                     break;
                 case 9:
-                    System.out.println("Denne er ikke implementeret endnu");
-                    //createTestData();
+                    createTestData();
                     break;
                 case 0:
                     System.out.println("Tak for denne gang.");
@@ -90,8 +89,22 @@ public class MainMenu {
     }
 
     private void createTestData(){
+        lpUI.createTestLPs("3232sda23d", "Cool song", "Mikkel", "18/01/2003", 7);
+        lpUI.createTestLPs("3dsa22a23d", "Hej med dig", "Seje mand", "18/01/2003", 5);
+        lpUI.createTestLPs("23232dsa3d", "Mere end 1 klub", "Endnu sejere", "18/01/2003", 2);
+        lpUI.createTestLPs("393937323d", "Cold fact", "Manden", "18/01/2003", 6);
+        lpUI.createTestLPs("jdskja233d", "American heartbreak", "Ham", "18/01/2003", 1);
+        lpUI.createTestLPs("kk322jsd3d", "Cool country", "Lasse", "18/01/2003", 9);
+        lpUI.createTestLPs("082726dh3d", "Wild ones", "Mikkel", "18/01/2003", 7);
+        lpUI.createTestLPs("dsaa232d3d", "Long time coming", "Seje mand", "18/01/2003", 4);
+        lpUI.createTestLPs("lls8383n3d", "Traveler", "Endnu sejere", "18/01/2003", 3);
+        lpUI.createTestLPs("ddjsa7323d", "O", "Manden", "18/01/2003", 1);
+        lpUI.createTestLPs("3sdsk3333d", "Colden hour", "Ham", "18/01/2003", 2);
+        lpUI.createTestLPs("84334dss3d", "Cry baby", "Ham", "18/01/2003", 22);
         
-
+        friendUI.createFriend("Manden med det store ben", "Villavej 77", "21894367", "Aalborg", "9000");
+        friendUI.createFriend("Nik", "Østerbro 1", "69694242", "Randers", "8900");
+        friendUI.createFriend("Jay", "Østerbro 1", "42426969", "Randers", "8900");
+        friendUI.createFriend("Rasmus Klunk", "Sommergade 10", "90566732", "Aalborg", "9000");
     }
-
 }

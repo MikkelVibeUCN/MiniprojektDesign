@@ -40,4 +40,9 @@ public class FriendController
     public Friend getFriendFromId(int id) {
         return friendContainer.getFriend(id);
     }
+    
+    public void createFriend(String name, String address, String phone, String city, String postalCode) {
+        Friend newFriend = new Friend(name, address, phone, city, postalCode);
+        friendContainer.addFriend(newFriend);
+    }
 }

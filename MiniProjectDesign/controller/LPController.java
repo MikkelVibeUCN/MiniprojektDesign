@@ -37,4 +37,16 @@ public class LPController
     public Copy getCopyFromBarcode(String barcode) {
         return lpContainer.getCopyFromBarcode(barcode);
     }
+    
+    public void createLP(String barcode, String title, String artist, String publicationDate, int copyAmount) {
+        LP newLP = new LP(barcode, title, artist, publicationDate);
+        
+        for(int i = 0; i < copyAmount; i++) {
+            Copy newCopy = new Copy(i * 33232 + 4);
+            newLP.addCopyToList(newCopy);
+        }
+        
+        lpContainer.addLP(newLP);
+    }
+    
 }

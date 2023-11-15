@@ -13,14 +13,15 @@ public class Friend
     private String postalCode;
     private ArrayList<Loan> loans;
     private int id;
+    private static int count;
 
-    public Friend(String name, String address, String phone, String city, String postalCode, int id) {
+    public Friend(String name, String address, String phone, String city, String postalCode) {
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.city = city;
         this.postalCode = postalCode;
-        this.id = id;
+        id = count++;
         loans = new ArrayList<>();
     }
     
