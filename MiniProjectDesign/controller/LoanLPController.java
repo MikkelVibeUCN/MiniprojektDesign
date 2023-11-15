@@ -46,6 +46,7 @@ public class LoanLPController
                 Copy currentCopy = lpController.getCopyFromBarcode(barcode);
                 if(currentCopy != null) {
                     copies.add(currentCopy);
+                    currentCopy.markLoan();
                 }
             }
             
