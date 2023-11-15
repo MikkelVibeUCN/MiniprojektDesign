@@ -14,7 +14,10 @@ public class Friend
     private ArrayList<Loan> loans;
     private int id;
     private static int count;
-
+    
+    /**
+     * Constructor for Friend
+     */
     public Friend(String name, String address, String phone, String city, String postalCode) {
         this.name = name;
         this.address = address;
@@ -24,7 +27,6 @@ public class Friend
         id = count++;
         loans = new ArrayList<>();
     }
-    
     
     public String getName() {
         return name;
@@ -50,6 +52,10 @@ public class Friend
         return id;
     }
     
+    /**
+     * Method parameters()
+     * @return ArrayList of type String with all the parameters which can be searched by.
+     */
     private ArrayList<String> parameters() {
         ArrayList<String> result = new ArrayList<>();
         
@@ -62,6 +68,11 @@ public class Friend
         return result;
     }
     
+    /**
+     * isMatch() checks if the parameter matches one of the friends attributes
+     * @param identifier to check match on in string form
+     * @return true if the parameter matches one of the attributes and false if it doesn't
+     */
     public boolean isMatch(String identifier) {
         boolean result = false;
         int i = -1;
@@ -79,6 +90,10 @@ public class Friend
         loans.add(loan);
     }
     
+    /**
+     * Method infoString() creates strings with information about the friend
+     * @return String with information about the friend
+     */
     public String infoString() {
         return "ID: " + id + ": This friend is " + name 
             + ", their address is " + address + ", " + city + ", " + postalCode

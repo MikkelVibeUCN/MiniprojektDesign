@@ -23,7 +23,11 @@ public class LP
     public void addCopyToList(Copy copyToAdd) {
         copies.add(copyToAdd);
     }
-
+    
+    /**
+     * getParameters() creates an Arraylist of all the attributes the LP can be searched by
+     * @return the ArrayList of attributes in String form
+     */
     private ArrayList<String> getParameters() {
         ArrayList<String> result = new ArrayList<>();
 
@@ -34,7 +38,12 @@ public class LP
 
         return result;
     }
-
+    
+    /**
+     * identifierMatchesLP() finds out if the LP has at least one attribute that matches the identifier
+     * @param identifier to search for
+     * @return true if the LP has at least one attribute that matches the identifier and false if it doesn't
+     */
     public boolean identifierMatchesLP(String identifier) {
         boolean result = false;
         int i = -1;
@@ -48,6 +57,10 @@ public class LP
         return result;
     }
 
+    /**
+     * hasAvailableCopy() finds out if the LP has at least one available copy
+     * @return true if it has at least one available copy, false if it doesn't
+     */
     public boolean hasAvailableCopy() {
         boolean result = false;
         int i = -1;
@@ -72,7 +85,11 @@ public class LP
         return "Barcode: " + barcode + ", title of LP: " + title 
         + ", by " + artist + ", on " + publicationDate;
     }
-
+    
+    /**
+     * getAvailableCopy() finds the first available copy in the list of copies
+     * @return returns the first available copy or null if no copies are available
+     */ 
     public Copy getAvailableCopy() {
         Copy result = null;
         int i = -1;

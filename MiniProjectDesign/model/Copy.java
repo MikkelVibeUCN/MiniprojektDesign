@@ -34,6 +34,10 @@ public class Copy
         return serialNumber;
     }
     
+    /**
+     * The markLoan() method marks the copy as loaned and sets loanEndDate 10 days ahead
+     * @return void
+     */
     public void markLoan() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");  
         

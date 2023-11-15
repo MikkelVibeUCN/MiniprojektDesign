@@ -8,18 +8,23 @@ public class FriendContainer
 {
     private ArrayList<Friend> friends;    
     private static FriendContainer instance;
-    
+
     private FriendContainer() {
         friends = new ArrayList<>();
     }
-    
+
     public static FriendContainer getInstance() {
         if(instance == null) {
             instance = new FriendContainer();
         }
         return instance;
     }
-    
+
+    /**
+     * findFriends() finds objects of type Friend who have at least one attribute matching the parameter
+     * @param identifier is the search criteria in String form
+     * @return returns an ArrayList of friends who all have at least one attribute matching the parameter
+     */
     public ArrayList<Friend> findFriends(String identifier) {
         ArrayList<Friend> resultList = new ArrayList<>();
         for(Friend friend : friends) {
@@ -29,7 +34,12 @@ public class FriendContainer
         }
         return resultList;
     }
-    
+
+    /**
+     * getFriend() gets the friend from ID
+     * @param id to search for
+     * @return returns a Friend object with the id given in parameter
+     */
     public Friend getFriend(int id) {
         Friend friend = null;
         boolean found = false;
@@ -42,7 +52,7 @@ public class FriendContainer
         }
         return friend;
     }
-    
+
     public void addFriend(Friend friend) {
         friends.add(friend);
     }
