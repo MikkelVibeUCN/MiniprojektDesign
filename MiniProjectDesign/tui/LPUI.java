@@ -20,17 +20,17 @@ public class LPUI
         }
         return instance;
     }
-
+    
     public ArrayList<String> findLPBarcodes() {
         ArrayList<String> result = new ArrayList<>();
         Scanner keyboard = new Scanner(System.in);
         
-        boolean addedLP = false;
+        boolean hasAddedLP = false;
         boolean isCompleted = false;
         while(!isCompleted) {
             String introMessage = "Type an identifier of the LP or type \"quit\" to quit";
-            if(addedLP) {
-                introMessage += "or type \"confirm\" to complete the loan.";
+            if(hasAddedLP) {
+                introMessage += "or type \"confirm\" to complete the loan";
             }
             System.out.println(introMessage);
             
@@ -39,7 +39,7 @@ public class LPUI
                 isCompleted = true;
             }
             else if(lpIdentifier.toLowerCase().equals("confirm")) {
-                if(addedLP) {
+                if(hasAddedLP) {
                     isCompleted = true;
                 }
                 else {
@@ -59,7 +59,7 @@ public class LPUI
                     }
                     else {
                         result.add(barcode);
-                        addedLP = true;
+                        hasAddedLP = true;
                     }
                 }
                 else {
@@ -69,7 +69,7 @@ public class LPUI
         }
         return result;
     }
-
+    
     private String selectLPBarcode() {
         String barcode = null;
         Scanner keyboard = new Scanner(System.in);

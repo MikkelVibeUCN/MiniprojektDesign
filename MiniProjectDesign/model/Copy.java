@@ -35,7 +35,7 @@ public class Copy
     }
     
     public void markLoan() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss");  
         
         LocalDateTime now = LocalDateTime.now();  
         loanStartDate = dtf.format(now);
