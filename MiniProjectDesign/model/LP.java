@@ -24,7 +24,7 @@ public class LP
         copies.add(copyToAdd);
     }
 
-    public ArrayList<String> getParameters() {
+    private ArrayList<String> getParameters() {
         ArrayList<String> result = new ArrayList<>();
 
         result.add(barcode);

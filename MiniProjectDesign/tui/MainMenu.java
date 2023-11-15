@@ -58,18 +58,22 @@ public class MainMenu {
     private int writeMainMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Hovedmenu ******");
-        System.out.println(" (1) LÃ¥nermenu");
+        System.out.println(" (1) Lånermenu");
         System.out.println(" (2) LP menu");
         System.out.println(" (3) Udlånsmenu");
         System.out.println(" (9) Generer testdata");
         System.out.println(" (0) Afslut programmet");
         System.out.print("\n Vælg:");
 
-        while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal være et tal - prøv igen");
-            keyboard.nextLine();
+        int choice = -1;
+        while(choice == -1) {
+            try {
+                choice = keyboard.nextInt();
+            }
+            catch (Exception e) {
+                System.out.println("Input skal være et tal - prøv igen");
+            }
         }
-        int choice = keyboard.nextInt();
         return choice;
     }
 
@@ -101,7 +105,7 @@ public class MainMenu {
         lpUI.createTestLPs("ddjsa7323d", "O", "Manden", "18/01/2003", 1);
         lpUI.createTestLPs("3sdsk3333d", "Colden hour", "Ham", "18/01/2003", 2);
         lpUI.createTestLPs("84334dss3d", "Cry baby", "Ham", "18/01/2003", 22);
-        
+
         friendUI.createFriend("Manden med det store ben", "Villavej 77", "21894367", "Aalborg", "9000");
         friendUI.createFriend("Nik", "Østerbro 1", "69694242", "Randers", "8900");
         friendUI.createFriend("Jay", "Østerbro 1", "42426969", "Randers", "8900");

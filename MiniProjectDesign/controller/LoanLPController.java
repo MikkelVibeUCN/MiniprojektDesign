@@ -1,4 +1,5 @@
 package controller;
+
 import java.util.ArrayList;
 import model.Copy;
 import model.Friend;
@@ -12,6 +13,7 @@ public class LoanLPController
     private FriendController friendController;
     private LPController lpController;
     private static LoanLPController instance;
+    
     private LoanLPController() {
         friendController = FriendController.getInstance();
         lpController = LPController.getInstance();

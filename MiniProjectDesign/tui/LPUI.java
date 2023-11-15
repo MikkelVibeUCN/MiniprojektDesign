@@ -24,17 +24,27 @@ public class LPUI
     public ArrayList<String> findLPBarcodes() {
         ArrayList<String> result = new ArrayList<>();
         Scanner keyboard = new Scanner(System.in);
-
+        
+        boolean addedLP = false;
         boolean isCompleted = false;
         while(!isCompleted) {
-            System.out.println("Type an identifier of the LP or type \"quit\" to quit and \"confirm\" to complete the loan.");
-            String lpIdentifier = keyboard.nextLine();
+            String introMessage = "Type an identifier of the LP or type \"quit\" to quit";
+            if(addedLP) {
+                introMessage += "or type \"confirm\" to complete the loan.";
+            }
+            System.out.println(introMessage);
             
+            String lpIdentifier = keyboard.nextLine();
             if(lpIdentifier.toLowerCase().equals("quit")) {
                 isCompleted = true;
             }
             else if(lpIdentifier.toLowerCase().equals("confirm")) {
-                isCompleted = true;
+                if(addedLP) {
+                    isCompleted = true;
+                }
+                else {
+                    System.out.println("Can't confirm empty loan");
+                }
             }
             else {
                 ArrayList<String> lpOptions = lpController.availableLPsInfoFromIdentifier(lpIdentifier);
@@ -43,12 +53,13 @@ public class LPUI
                     for(String friendOption : lpOptions) {
                         System.out.println(friendOption);
                     }
-                    String barcode = getLPBarcode();
+                    String barcode = selectLPBarcode();
                     if(barcode == null) {
                         System.out.println("Quitting...");
                     }
                     else {
                         result.add(barcode);
+                        addedLP = true;
                     }
                 }
                 else {
@@ -59,7 +70,7 @@ public class LPUI
         return result;
     }
 
-    private String getLPBarcode() {
+    private String selectLPBarcode() {
         String barcode = null;
         Scanner keyboard = new Scanner(System.in);
 

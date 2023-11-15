@@ -6,9 +6,9 @@ import java.util.ArrayList;
  */
 public class LPContainer
 {
-    private static LPContainer instance;
     private ArrayList<LP> lps;
-
+    private static LPContainer instance;
+    
     private LPContainer() {
         lps = new ArrayList<>();
     }
@@ -18,20 +18,6 @@ public class LPContainer
             instance = new LPContainer();
         }
         return instance;
-    }
-
-    public ArrayList<Copy> findAvailableCopiesFromIdentifier(String identifier) {
-        ArrayList<Copy> possibleCopies = new ArrayList<>();
-        for(LP lp : lps) {
-            if(lp.hasAvailableCopy()) {
-                for(Copy copy : lp.getCopies()) {
-                    if(copy.isAvailableForLoan()) {
-                        possibleCopies.add(copy);
-                    }
-                }
-            }
-        }
-        return possibleCopies;
     }
 
     public ArrayList<LP> availableLPs() {

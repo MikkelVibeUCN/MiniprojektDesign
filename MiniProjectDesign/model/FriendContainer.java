@@ -6,8 +6,9 @@ import java.util.ArrayList;
  */
 public class FriendContainer
 {
-    private static FriendContainer instance;
     private ArrayList<Friend> friends;    
+    private static FriendContainer instance;
+    
     private FriendContainer() {
         friends = new ArrayList<>();
     }

@@ -8,8 +8,9 @@ import java.util.ArrayList;
  */
 public class FriendUI
 {
-    private static FriendUI instance;
     private FriendController friendController;
+    private static FriendUI instance;
+
     private FriendUI() {
         friendController = FriendController.getInstance();
     }
@@ -29,7 +30,7 @@ public class FriendUI
         while(!isCompleted) {
             System.out.println("Type an identifier of the friend or type \"quit\" to quit ");
             String friendIdentifier = keyboard.nextLine();
-            
+
             if(friendIdentifier.toLowerCase().equals("quit")) {
                 isCompleted = true;
             }
@@ -40,7 +41,7 @@ public class FriendUI
                     for(String friendOption : friendOptions) {
                         System.out.println(friendOption);
                     }
-                    friendID = getFriendID();
+                    friendID = selectFriendID();
                     if(friendID == -1) {
                         System.out.println("Quitting...");
                     }
@@ -54,7 +55,7 @@ public class FriendUI
         return friendID;
     }
 
-    private int getFriendID() {
+    private int selectFriendID() {
         int id = -1;
         Scanner keyboard = new Scanner(System.in);
 
@@ -80,7 +81,7 @@ public class FriendUI
         }
         return id;
     }
-    
+
     public void createFriend(String name, String address, String phone, String city, String postalCode) {
         friendController.createFriend(name, address, phone, city, postalCode);
     }
