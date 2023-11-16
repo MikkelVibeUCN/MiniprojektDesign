@@ -86,7 +86,7 @@ public class LPUI
 
         boolean success = false;
         while(!success) {
-            System.out.println("Select one of the LPs(s) by typing their barcode or quit by typing \"quit\".");
+            System.out.println("Select one of the LP(s) by typing their barcode or quit by typing \"quit\".");
             String input = keyboard.nextLine();
             if(input.toLowerCase().equals("quit")) {
                 success = true;
