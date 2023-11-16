@@ -30,7 +30,7 @@ public class LPUI
         while(!isCompleted) {
             String introMessage = "Type an identifier of the LP or type \"quit\" to quit";
             if(hasAddedLP) {
-                introMessage += "or type \"confirm\" to complete the loan";
+                introMessage += " or type \"confirm\" to complete the loan";
             }
             System.out.println(introMessage);
             
