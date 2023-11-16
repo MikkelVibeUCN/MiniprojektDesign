@@ -4,9 +4,9 @@ import controller.LoanLPController;
 import java.util.ArrayList;
 
 /**
- * Write a description of class LoanMenu here.
+ * LoanUI is the specific use case of creating loans
  *
- * @author Mogens Holm Iversen
+ * @author Mogens Holm Iversen, opdateret af Mikkel
  * @version 0.1.0 Initial draft version 
  */
 public class LoanUI{

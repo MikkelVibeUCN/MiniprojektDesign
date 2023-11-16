@@ -13,6 +13,7 @@ public class MainMenu {
     private LoanUI loanUI;
     private FriendUI friendUI;
     private LPUI lpUI;
+    
     /**
      * Constructor for objects of class MainMenu
      */
@@ -27,6 +28,10 @@ public class MainMenu {
         mainMenu();
     }
 
+    
+    /**
+     * mainMenu() creates and handles the users inputs regarding what function they want to run
+     */
     private void mainMenu() {
         boolean running = true;
         while (running) {
@@ -54,7 +59,11 @@ public class MainMenu {
             }
         }
     }
-
+    
+    /**
+     * writeMainMenu() prints the main menu and gets user input
+     * @return The selected option the user wants to run.
+     */
     private int writeMainMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Hovedmenu ******");
@@ -76,7 +85,11 @@ public class MainMenu {
         }
         return choice;
     }
-
+    
+    /**
+     * createLoan() allows all the three UI classes to work together 
+     * and finally when the barcodes and friendID is found it sends it off to the loanUI
+     */
     private void createLoan() {
         int friendID = friendUI.findFriendID();
         if(friendID != -1) {

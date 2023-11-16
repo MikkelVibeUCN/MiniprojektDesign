@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
+ * FriendUI holder styr på alt UI som har med Friend at gøre.
  * @author Mikkel
  */
 public class FriendUI
@@ -21,7 +22,10 @@ public class FriendUI
         }
         return instance;
     }
-
+    /**
+     * findFriendID() directs the user into finding the Friend who wants to loan
+     * @return returns the id of the friend or -1 if the friend is not found or if the method is quit.
+     */
     public int findFriendID() {
         int friendID = -1;
         Scanner keyboard = new Scanner(System.in);
@@ -54,7 +58,11 @@ public class FriendUI
         }
         return friendID;
     }
-
+    
+    /**
+     * selectFriendID() is a helper method that helps the user select the friend
+     * @return returns the id of the friend or -1 if the method is either abandonded or if no friend with the id exists
+     */
     private int selectFriendID() {
         int id = -1;
         Scanner keyboard = new Scanner(System.in);

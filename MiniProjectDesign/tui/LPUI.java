@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
+ * LPUI handles user input related to LP's or Copy's
  * @author Mikkel
  */
 public class LPUI
@@ -21,6 +22,11 @@ public class LPUI
         return instance;
     }
     
+    
+    /**
+     * findLPBarcodes() finds all the barcodes of the LPs the user wants to loan
+     * @return ArrayList<String> with all the barcodes inside
+     */
     public ArrayList<String> findLPBarcodes() {
         ArrayList<String> result = new ArrayList<>();
         Scanner keyboard = new Scanner(System.in);
@@ -70,6 +76,10 @@ public class LPUI
         return result;
     }
     
+    /**
+     * selectLPBarcode() is a helper method that lets the user select which LP they want to loan from their search
+     * @return the barcode of the LP they want to loan in String form
+     */
     private String selectLPBarcode() {
         String barcode = null;
         Scanner keyboard = new Scanner(System.in);
