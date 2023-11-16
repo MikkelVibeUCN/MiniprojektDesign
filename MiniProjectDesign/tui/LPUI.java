@@ -49,7 +49,7 @@ public class LPUI
                     isCompleted = true;
                 }
                 else {
-                    System.out.println("Can't confirm empty loan");
+                    System.out.println("Can't confirm loan with no LP's");
                 }
             }
             else {
@@ -69,7 +69,7 @@ public class LPUI
                     }
                 }
                 else {
-                    System.out.println("No available LPs with the identifier: " + lpIdentifier + ".");
+                    System.out.println("No available LP's with the identifier: " + lpIdentifier + ".");
                 }
             }
         }
@@ -78,24 +78,24 @@ public class LPUI
     
     /**
      * selectLPBarcode() is a helper method that lets the user select which LP they want to loan from their search
-     * @return the barcode of the LP they want to loan in String form
+     * @return the barcode of the LP they want to loan in String form or null if the method is quit before finding it
      */
     private String selectLPBarcode() {
         String barcode = null;
         Scanner keyboard = new Scanner(System.in);
 
-        boolean success = false;
-        while(!success) {
+        boolean isCompleted = false;
+        while(!isCompleted) {
             System.out.println("Select one of the LP(s) by typing their barcode or quit by typing \"quit\".");
             String input = keyboard.nextLine();
             if(input.toLowerCase().equals("quit")) {
-                success = true;
+                isCompleted = true;
             }
             else {
                 if(lpController.lpWithBarcodeExistsAndIsAvailable(input)) {
                     System.out.println("LP with barcode: " + input + " was selected");
                     barcode = input;
-                    success = true;
+                    isCompleted = true;
                 }
                 else {
                     System.out.println("No available LPs with barcode: " + input + ".");
