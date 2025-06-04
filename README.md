@@ -1,2 +1,1 @@
-# Miniprojekt Design
-Skoleprojekt
+# Miniprojekt Design 2 semester project
